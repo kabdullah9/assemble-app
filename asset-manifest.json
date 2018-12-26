@@ -1,13 +1,13 @@
 {
-  "main.css": "/kabdullah9/assemble-app/static/css/main.300a4735.chunk.css",
-  "main.js": "/kabdullah9/assemble-app/static/js/main.e3dbce66.chunk.js",
-  "main.js.map": "/kabdullah9/assemble-app/static/js/main.e3dbce66.chunk.js.map",
-  "static/js/1.fbe3ae89.chunk.js": "/kabdullah9/assemble-app/static/js/1.fbe3ae89.chunk.js",
-  "static/js/1.fbe3ae89.chunk.js.map": "/kabdullah9/assemble-app/static/js/1.fbe3ae89.chunk.js.map",
-  "runtime~main.js": "/kabdullah9/assemble-app/static/js/runtime~main.a95c0080.js",
-  "runtime~main.js.map": "/kabdullah9/assemble-app/static/js/runtime~main.a95c0080.js.map",
-  "static/css/main.300a4735.chunk.css.map": "/kabdullah9/assemble-app/static/css/main.300a4735.chunk.css.map",
-  "index.html": "/kabdullah9/assemble-app/index.html",
-  "precache-manifest.bd1c647f8e7655e71960cd7bee4639ad.js": "/kabdullah9/assemble-app/precache-manifest.bd1c647f8e7655e71960cd7bee4639ad.js",
-  "service-worker.js": "/kabdullah9/assemble-app/service-worker.js"
+  "main.css": "./static/css/main.300a4735.chunk.css",
+  "main.js": "./static/js/main.89ba3b44.chunk.js",
+  "main.js.map": "./static/js/main.89ba3b44.chunk.js.map",
+  "static/js/1.fbe3ae89.chunk.js": "./static/js/1.fbe3ae89.chunk.js",
+  "static/js/1.fbe3ae89.chunk.js.map": "./static/js/1.fbe3ae89.chunk.js.map",
+  "runtime~main.js": "./static/js/runtime~main.4a686d48.js",
+  "runtime~main.js.map": "./static/js/runtime~main.4a686d48.js.map",
+  "static/css/main.300a4735.chunk.css.map": "./static/css/main.300a4735.chunk.css.map",
+  "index.html": "./index.html",
+  "precache-manifest.c60eb2aaa2c8e625f859e9f0809fd245.js": "./precache-manifest.c60eb2aaa2c8e625f859e9f0809fd245.js",
+  "service-worker.js": "./service-worker.js"
 }
