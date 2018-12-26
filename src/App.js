@@ -7,7 +7,7 @@ import {
 } from 'reactstrap';
 
 const BookComponent = (props) => {
-  const getAuthor = props.authors? props.authors[0] : "";
+  const getAuthor = props.authors ? props.authors[0] : "";
   return (
     <div className="card col-2 cardMargin">
       <img className="card-img-top" src={props.src} alt="Card image cap" />
@@ -42,14 +42,19 @@ class App extends Component {
   state = {
     amBooks: [],
     nzBooks: [],
+    userInput: '',
   }
 
-  searchApi = (q="tech%5D") => {
+  searchApi = (q = "tech%5D") => {
     const url = `https://www.googleapis.com/books/v1/volumes?q=${q}`
     return axios.get(url).then(({ data }) => {
       const books = data.items.reduce((acc, cv) => {
-        const { title, authors, imageLinks: { smallThumbnail } } = cv.volumeInfo
-        const bookInfo = { title, authors, src: smallThumbnail }
+        const { title, authors, imageLinks } = cv.volumeInfo
+        const getSrc = () => {
+          if (imageLinks !== undefined) return imageLinks.smallThumbnail
+          return "http://halffullmarketing.site/wp-content/uploads/2017/07/coming-soon.png"
+        }
+        const bookInfo = { title, authors, src: getSrc() }
         const firstCharTitleLetter = title[0].toLowerCase();
         const amLetters = ["a", "b", "c", "d", "e", "f", "g", " h", "i", "j", "k", "l", "m"];
         if (amLetters.includes(firstCharTitleLetter)) {
@@ -74,12 +79,29 @@ class App extends Component {
     return this.searchApi();
   }
 
+  handleInputText = (event) => {
+    console.log(event.target.value)
+    return this.setState({
+      userInput: event.target.value
+    });
+  }
+
+  handleSearchClick = () => {
+    console.log(this.state.userInput, "input")
+    return this.searchApi(this.state.userInput)
+  }
+
   render() {
+    console.log(this.state)
     return (
       <div className="App container-fluid">
         <div>
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
             <a className="navbar-brand"><h5>Assemble Books</h5></a>
+            <div>
+              <input onChange={this.handleInputText}></input>
+              <button onClick={this.handleSearchClick}>Search</button>
+            </div>
           </nav>
           <br />
           <h2>Books</h2>
@@ -87,16 +109,20 @@ class App extends Component {
         <RowComponent books={this.state.amBooks} />
         <RowComponent books={this.state.nzBooks} />
         <div class="row card-footer text-muted">
-          <h6>Assemble</h6>
-          {new Array(9).fill({}).map((item, index) => {
-            return (
-              <ul className="thumbnails">
-                <li>
-                  <a href="" key={index}>link</a>
-                </li>
-              </ul>
-            )
-          })}
+          <h6 className="col-4">Assemble</h6>
+          <div className='col-8'>
+            {new Array(9).fill({}).map((item, index) => {
+              return (
+                <div>
+                  <ul>
+                    <li className='col-4'>
+                      <a href="" key={index}>link</a>
+                    </li>
+                  </ul>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div >
     );
